@@ -3,16 +3,16 @@ import { useState } from 'react';
 import { supabase } from '../lib/supabase';
 
 export default function Contact() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');  // 姓名状态
+  const [email, setEmail] = useState('');  // 邮箱状态
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault();  // 阻止默认表单提交行为
 
     const { data, error } = await supabase
-      .from('contacts')  // Replace with your table name
+      .from('contacts')  // 替换成你的数据库表名
       .insert([
-        { name: name, email: email }
+        { name: name, email: email }  // 提交的数据
       ]);
 
     if (error) {
@@ -33,14 +33,14 @@ export default function Contact() {
         <input
           type="text"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setName(e.target.value)}  // 更新姓名状态
         />
         <br />
         <label>Email:</label>
         <input
           type="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}  // 更新邮箱状态
         />
         <br />
         <button type="submit">Submit</button>
