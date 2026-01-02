@@ -33,3 +33,20 @@ export default function Home() {
     </div>
   );
 }
+// pages/index.js
+import Link from 'next/link';  // 导入 Link 组件
+
+export default function Home() {
+  return (
+    <div>
+      <h1>Welcome to My Platform!</h1>
+      <nav>
+        <ul>
+          <li><Link href="/">Home</Link></li>
+          <li><Link href="/about">About</Link></li>
+          <li><Link href="/contact">Contact</Link></li>
+        </ul>
+      </nav>
+    </div>
+  );
+}
