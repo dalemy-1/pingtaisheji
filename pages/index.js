@@ -6,20 +6,19 @@ export default function Home() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const { data, error } = await supabase
-        .from('contacts')
-        .select('*');
+  const fetchData = async () => {
+    const { data, error } = await supabase.from('contacts').select('*');
+    console.log(data);  // 调试日志
+    if (error) {
+      console.error("Error fetching data:", error);
+    } else {
+      setData(data);
+    }
+  };
 
-      if (error) {
-        console.error("Error fetching data:", error);
-      } else {
-        setData(data);
-      }
-    };
+  fetchData();
+}, []);
 
-    fetchData();
-  }, []);
 
   return (
     <div>
