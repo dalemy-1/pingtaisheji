@@ -35,10 +35,16 @@ export default function Home() {
       </button>
 
       <ul>
-        {data.map((item, index) => (
-          <li key={index}>{item.name} - {item.email}</li>
-        ))}
-      </ul>
+  {data.length > 0 ? (
+    data.map((item, index) => (
+      <li key={index}>
+        {item.name} - {item.email}
+      </li>
+    ))
+  ) : (
+    <p>No data available</p>
+  )}
+</ul>
     </div>
   );
 }
