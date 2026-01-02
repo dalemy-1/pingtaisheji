@@ -74,3 +74,7 @@ export default function Home() {
     </div>
   );
 }
+<button>
+  <i className="fas fa-sort"></i> Sort Data
+</button>
+
