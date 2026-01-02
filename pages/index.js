@@ -8,9 +8,10 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       const { data, error } = await supabase
-        .from('contacts')  // 替换为你的 Supabase 表名
-        .select('*');
-      
+        .from('contacts')
+        .select('*')
+        .order('name', { ascending: true });  // 按照 name 排序
+
       if (error) {
         console.error("Error fetching data:", error);
       } else {
