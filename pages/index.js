@@ -15,3 +15,23 @@ export default function Home() {
     </div>
   );
 }
+// pages/index.js
+export default function Home() {
+  return (
+    <div style={{ textAlign: 'center', padding: '20px' }}>
+      <h1>Welcome to My Platform!</h1>
+      <p>Here is where the magic happens.</p>
+    </div>
+  );
+}
+// pages/index.js
+import styles from '../styles/Home.module.css';
+
+export default function Home() {
+  return (
+    <div className={styles.container}>
+      <h1>Welcome to My Platform!</h1>
+      <p>Here is where the magic happens.</p>
+    </div>
+  );
+}
