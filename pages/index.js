@@ -50,3 +50,20 @@ export default function Home() {
     </div>
   );
 }
+// pages/index.js
+import styles from '../styles/Home.module.css';  // 导入样式
+
+export default function Home() {
+  return (
+    <div className={styles.container}>  {/* 应用样式 */}
+      <h1>Welcome to My Platform!</h1>
+      <nav>
+        <ul>
+          <li><Link href="/">Home</Link></li>
+          <li><Link href="/about">About</Link></li>
+          <li><Link href="/contact">Contact</Link></li>
+        </ul>
+      </nav>
+    </div>
+  );
+}
