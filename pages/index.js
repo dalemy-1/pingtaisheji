@@ -26,7 +26,8 @@ export default function Home() {
       <h1>Data from Supabase</h1>
       <ul>
         {data.map((item, index) => (
-          <li key={index}>{item.name} - {item.email}</li>  {/* 显示数据 */}
+          // JSX 注释应该在标签外部
+          <li key={index}>{item.name} - {item.email}</li>
         ))}
       </ul>
     </div>
