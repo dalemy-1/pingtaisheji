@@ -1,3 +1,4 @@
+// pages/contact.js
 import { useState } from 'react';
 import { supabase } from '../lib/supabase';
 
@@ -12,7 +13,7 @@ export default function Contact() {
     setLoading(true);
 
     const { data, error } = await supabase
-      .from('contacts') // 替换为你的数据库表名
+      .from('contacts')  // 替换为你的 Supabase 表名
       .insert([{ name: name, email: email }]);
 
     if (error) {
