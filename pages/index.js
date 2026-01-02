@@ -10,7 +10,7 @@ export default function Home() {
       const { data, error } = await supabase
         .from('contacts')  // 替换为你的 Supabase 表名
         .select('*');
-
+      
       if (error) {
         console.error("Error fetching data:", error);
       } else {
@@ -26,7 +26,7 @@ export default function Home() {
       <h1>Data from Supabase</h1>
       <ul>
         {data.map((item, index) => (
-          <li key={index}>{item.name} - {item.email}</li>  {/* 确保语法正确 */}
+          <li key={index}>{item.name} - {item.email}</li>  {/* 确保这里没有语法错误 */}
         ))}
       </ul>
     </div>
