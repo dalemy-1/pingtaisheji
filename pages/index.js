@@ -7,8 +7,12 @@ export default function Home() {
 
   useEffect(() => {
   const fetchData = async () => {
-    const { data, error } = await supabase.from('contacts').select('*');
-    console.log(data);  // 调试日志
+    const { data, error } = await supabase
+      .from('contacts')
+      .select('*');  // 确保查询正确的表
+
+    console.log("Fetched data:", data);  // 查看控制台数据
+    
     if (error) {
       console.error("Error fetching data:", error);
     } else {
@@ -18,6 +22,7 @@ export default function Home() {
 
   fetchData();
 }, []);
+
 
 
   return (
