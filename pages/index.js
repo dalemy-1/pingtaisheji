@@ -35,3 +35,34 @@ export default function Home() {
     </div>
   );
 }
+// pages/index.js
+import { useEffect, useState } from 'react';
+import { supabase } from '../lib/supabase';
+
+export default function Home() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data, error } = await supabase
+        .from('your_table_name')  // 替换成你的数据库表名
+        .select('*');
+      
+      if (error) console.error("Error fetching data:", error);
+      else setData(data);
+    };
+
+    fetchData();
+  }, []);
+
+  return (
+    <div>
+      <h1>Data from Supabase</h1>
+      <ul>
+        {data.map((item, index) => (
+          <li key={index}>{item.column_name}</li>  {/* 替换成你的数据字段 */}
+        ))}
+      </ul>
+    </div>
+  );
+}
