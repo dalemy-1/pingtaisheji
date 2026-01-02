@@ -1,18 +1,18 @@
+// pages/index.js
 import { useEffect, useState } from 'react';
-import { supabase } from '../lib/supabase'; // 引入 Supabase 客户端
+import { supabase } from '../lib/supabase';
 
 export default function Home() {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [sortOrder, setSortOrder] = useState('asc');
-  
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
 
-      // 每页显示 5 条数据
-      const itemsPerPage = 5;
+      const itemsPerPage = 5;  // 每页展示5条数据
       const { data, error, count } = await supabase
         .from('contacts')
         .select('*', { count: 'exact' })
@@ -45,8 +45,6 @@ export default function Home() {
   return (
     <div>
       <h1>Data from Supabase</h1>
-      
-      {/* 排序按钮 */}
       <button onClick={handleSortToggle}>
         Sort by Name ({sortOrder === 'asc' ? 'Ascending' : 'Descending'})
       </button>
@@ -63,7 +61,6 @@ export default function Home() {
         </ul>
       )}
 
-      {/* 分页控制 */}
       <div>
         <button onClick={handlePrevPage} disabled={page === 1}>
           Previous
@@ -74,7 +71,3 @@ export default function Home() {
     </div>
   );
 }
-<button>
-  <i className="fas fa-sort"></i> Sort Data
-</button>
-
