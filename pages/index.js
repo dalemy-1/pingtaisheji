@@ -8,9 +8,8 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       const { data, error } = await supabase
-        .from('contacts')
-        .select('*')
-        .order('name', { ascending: true });  // 按照 name 排序
+        .from('contacts')  // 使用正确的表名
+        .select('*');  // 获取所有列的数据
 
       if (error) {
         console.error("Error fetching data:", error);
@@ -27,7 +26,7 @@ export default function Home() {
       <h1>Data from Supabase</h1>
       <ul>
         {data.map((item, index) => (
-          <li key={index}>{item.name} - {item.email}</li>
+          <li key={index}>{item.name} - {item.email}</li>  {/* 显示数据 */}
         ))}
       </ul>
     </div>
