@@ -14,6 +14,7 @@ export default function Home() {
       if (error) {
         console.error("Error fetching data:", error);
       } else {
+        console.log("Fetched data:", data);  // 添加调试日志
         setData(data);
       }
     };
@@ -25,10 +26,13 @@ export default function Home() {
     <div>
       <h1>Data from Supabase</h1>
       <ul>
-        {data.map((item, index) => (
-          // JSX 注释应该在标签外部
-          <li key={index}>{item.name} - {item.email}</li>
-        ))}
+        {data.length > 0 ? (
+          data.map((item, index) => (
+            <li key={index}>{item.name} - {item.email}</li>
+          ))
+        ) : (
+          <p>No data available</p>
+        )}
       </ul>
     </div>
   );
