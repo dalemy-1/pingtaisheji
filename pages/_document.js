@@ -20,3 +20,7 @@ export default class MyDocument extends Document {
     );
   }
 }
+// 示例：在 pages/index.js 使用 Font Awesome 图标
+<button>
+  <i className="fas fa-search"></i> Search
+</button>
